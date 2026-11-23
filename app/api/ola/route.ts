@@ -1,5 +1,8 @@
-export async function GET() {
+export async function GET(request: Request) {
+    const url = new URL(request.url);
+    const nome = url.searchParams.get("nome");
+
     return Response.json({
-        mensagem: "Mensagem da API!!!"
+        mensagem: `Olá ${nome}! Seja Bem Vindo!!!`
     });
 }
